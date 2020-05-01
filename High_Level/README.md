@@ -22,6 +22,7 @@ Current Functionality
 Libraries Needed from Adafruit
 ---------------------
 Links to Addition Libaries NEEDED from Adafruit! 
+Download the following ZIP files. In the Arduino IDE, go to "Sketch > Include Library > Add .ZIP Library" and select the downloaded ZIP file.
 
 1. Adafruit_GPS -> https://github.com/adafruit/Adafruit_GPS
 2. Adafruit_Sensor -> https://github.com/adafruit/Adafruit_Sensor
