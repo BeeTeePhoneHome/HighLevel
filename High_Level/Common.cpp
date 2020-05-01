@@ -3,6 +3,8 @@
 #include "Common.h"
 #include <math.h>
 
+//comment here for test
+
 //Globals from Common.cpp
 //global variables
 char buffer[BUFFSIZ];        // string buffer for the sentence
