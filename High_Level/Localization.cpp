@@ -5,7 +5,7 @@ Adafruit_GPS GPS(&mySerial);
 //Adafruit_L3GD20 gyro; GYRO still not working
 //#ifdef USE_I2C
   // The default constructor uses I2C
-  Adafruit_L3GD20 gyro;
+  Adafruit_L3GD20_Unified gyro;
 //#else
   // To use SPI, you have to define the pins
  // #define GYRO_CS 4 // labeled CS
@@ -45,7 +45,7 @@ Localization::Localization(Origin &org, Waypoint &estimated_position, Waypoint &
   newPos.speed_mmPs = 0;
   
   // Try to initialise and warn if we couldn't detect the chip
-   if (!gyro.begin(gyro.L3DS20_RANGE_250DPS))
+   if (!gyro.begin(GYRO_RANGE_250DPS))
   //if (!gyro.begin(gyro.L3DS20_RANGE_500DPS))
   //if (!gyro.begin(gyro.L3DS20_RANGE_2000DPS))
   {
@@ -175,27 +175,30 @@ long Localization::getHeading() {
  * uses gyroscope to get Gyroscope roll
  ******************************************************************************************************/
  double Localization::getGyroRoll(){
-  gyro.read();
-  if(DEBUG) Serial.println("Gyroscope Roll X: " + String(gyro.data.x));
-  return gyro.data.x;
+    sensors_event_t event;
+    gyro.getEvent(&event);
+  if(DEBUG) Serial.println("Gyroscope Roll X: " + String(event.gyro.x));
+  return event.gyro.x;
  }
  /*******************************************************************************************************
  * getGyroPitch()
  * uses gyroscope to get GyroPitch
  ******************************************************************************************************/
  double Localization::getGyroPitch(){
-  gyro.read();
-  if(DEBUG) Serial.println("Gyroscope Pitch Y: " + String(gyro.data.y)); 
-  return gyro.data.y;
+    sensors_event_t event;
+    gyro.getEvent(&event);
+  if(DEBUG) Serial.println("Gyroscope Pitch Y: " + String(event.gyro.y)); 
+  return event.gyro.y;
 }
  /*******************************************************************************************************
  * getGyroYaw()
  * uses gyroscope to get GyroYaw
  ******************************************************************************************************/
  double Localization::getGyroYaw(){
-  gyro.read();
-  if(DEBUG) Serial.println("Gyroscope Yaw Z: " + String(gyro.data.z)); 
-  return gyro.data.z;
+  sensors_event_t event; 
+  gyro.getEvent(&event);
+  if(DEBUG) Serial.println("Gyroscope Yaw Z: " + String(event.gyro.z)); 
+  return event.gyro.z;
   }
   
  /*******************************************************************************************************

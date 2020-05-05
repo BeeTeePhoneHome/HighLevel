@@ -26,7 +26,7 @@ Download the following ZIP files. In the Arduino IDE, go to "Sketch > Include Li
 
 1. Adafruit_GPS -> https://github.com/adafruit/Adafruit_GPS
 2. Adafruit_Sensor -> https://github.com/adafruit/Adafruit_Sensor
-3. Adafruit_L3GD20 (Triple Axis Gyroscope) -> https://github.com/adafruit/Adafruit_L3GD20
+3. Adafruit_L3GD20 (Triple Axis Gyroscope) -> https://github.com/adafruit/Adafruit_L3GD20_U
 4. Adafruit_LSM303 (Accelerometer + Magnetometer) -> https://github.com/adafruit/Adafruit_LSM303DLHC
 5. due_can library https://www.arduinolibraries.info/libraries/due_can
 
